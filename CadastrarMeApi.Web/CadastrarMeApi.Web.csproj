@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CadastrarMeApi.SharedKernel\CadastrarMeApi.SharedKernel.csproj" />
+    <ProjectReference Include="..\CadastrarMeApi.ApplicationService\CadastrarMeApi.ApplicationService.csproj" />
+    <ProjectReference Include="..\CadastrarMeApi.Domain\CadastrarMeApi.Domain.csproj" />
   </ItemGroup>
 
 </Project>

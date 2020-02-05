@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using CadastrarMeApi.Domain.Entities;
 using CadastrarMeApi.Domain.Repositories;
 using CadastrarMeApi.Domain.ApplicationServices;
+using CadastrarMeApi.Infra;
 
 namespace CadastrarMeApi.ApplicationService.Services
 {
-    public class ClienteApplicationService : IClienteApplicationService
+    public class ClienteApplicationService : ApplicationServiceBase, IClienteApplicationService
     {
         private readonly IClienteRepository _repository;
-        public ClienteApplicationService(IClienteRepository repository)
+        public ClienteApplicationService(IClienteRepository repository, IUnitOfWork uow)
+            : base(uow)
         {
             _repository = repository;
         }
