@@ -1,4 +1,5 @@
 using CadastrarMeApi.Domain.Shared;
+using CadastrarMeApi.Domain.Validations;
 
 namespace CadastrarMeApi.Domain.Entities
 {
@@ -15,6 +16,11 @@ namespace CadastrarMeApi.Domain.Entities
             Bairro = bairro;
             Cidade = cidade;
             Estado = estado;
+
+            this.ValidLogradouro();
+            this.ValidBairro();
+            this.ValidCidade();
+            this.ValidEstado();
         }
     }
 }

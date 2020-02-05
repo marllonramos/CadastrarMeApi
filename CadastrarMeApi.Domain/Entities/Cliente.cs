@@ -1,5 +1,6 @@
 using System;
 using CadastrarMeApi.Domain.Shared;
+using CadastrarMeApi.Domain.Validations;
 
 namespace CadastrarMeApi.Domain.Entities
 {
@@ -14,6 +15,10 @@ namespace CadastrarMeApi.Domain.Entities
             Nome = nome;
             CPF = cpf;
             DtNascimento = dt;
+
+            this.ValidNome();
+            this.ValidCPF();
+            this.ValidDataNascimento();
         }
     }
 }

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastrarMeApi.Web", "CadastrarMeApi.Web\CadastrarMeApi.Web.csproj", "{58A4DFFE-6E4A-447C-9461-84A16033C535}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastrarMeApi.Web", "CadastrarMeApi.Web\CadastrarMeApi.Web.csproj", "{58A4DFFE-6E4A-447C-9461-84A16033C535}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastrarMeApi.Infra", "CadastrarMeApi.Infra\CadastrarMeApi.Infra.csproj", "{F2A038BF-5B85-4F39-AD6F-A48826B694BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastrarMeApi.Infra", "CadastrarMeApi.Infra\CadastrarMeApi.Infra.csproj", "{F2A038BF-5B85-4F39-AD6F-A48826B694BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastrarMeApi.Domain", "CadastrarMeApi.Domain\CadastrarMeApi.Domain.csproj", "{BE81EADE-61DA-47FA-A133-8FC25BA2FED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastrarMeApi.Domain", "CadastrarMeApi.Domain\CadastrarMeApi.Domain.csproj", "{BE81EADE-61DA-47FA-A133-8FC25BA2FED0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastrarMeApi.ApplicationService", "CadastrarMeApi.ApplicationService\CadastrarMeApi.ApplicationService.csproj", "{7890B215-EECD-45BE-B580-371EB41C7AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastrarMeApi.ApplicationService", "CadastrarMeApi.ApplicationService\CadastrarMeApi.ApplicationService.csproj", "{7890B215-EECD-45BE-B580-371EB41C7AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastrarMeApi.SharedKernel", "CadastrarMeApi.SharedKernel\CadastrarMeApi.SharedKernel.csproj", "{E1182D83-D87A-442B-813F-14B751A25C7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{58A4DFFE-6E4A-447C-9461-84A16033C535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +71,23 @@ Global
 		{7890B215-EECD-45BE-B580-371EB41C7AA4}.Release|x64.Build.0 = Release|Any CPU
 		{7890B215-EECD-45BE-B580-371EB41C7AA4}.Release|x86.ActiveCfg = Release|Any CPU
 		{7890B215-EECD-45BE-B580-371EB41C7AA4}.Release|x86.Build.0 = Release|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Debug|x86.Build.0 = Debug|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Release|x64.Build.0 = Release|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Release|x86.ActiveCfg = Release|Any CPU
+		{E1182D83-D87A-442B-813F-14B751A25C7C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BA6721A-2216-4347-A1E0-22DC86FC8887}
 	EndGlobalSection
 EndGlobal
