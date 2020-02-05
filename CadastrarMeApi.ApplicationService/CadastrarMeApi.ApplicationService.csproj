@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CadastrarMeApi.Domain\CadastrarMeApi.Domain.csproj" />
+    <ProjectReference Include="..\CadastrarMeApi.Infra\CadastrarMeApi.Infra.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
