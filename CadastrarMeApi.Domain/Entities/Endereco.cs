@@ -1,6 +1,6 @@
 using System;
 using CadastrarMeApi.Domain.Shared;
-using CadastrarMeApi.Domain.Validations;
+using Flunt.Validations;
 
 namespace CadastrarMeApi.Domain.Entities
 {
@@ -23,10 +23,23 @@ namespace CadastrarMeApi.Domain.Entities
             Estado = estado;
             ClienteId = clienteId;
 
-            this.ValidLogradouro();
-            this.ValidBairro();
-            this.ValidCidade();
-            this.ValidEstado();
+            Validate();
+        }
+
+        public override void Validate()
+        {
+            AddNotifications(
+                new Contract()
+                .Requires()
+                .IsNotNullOrEmpty(Logradouro, "Logradouro", "Preencha o Logradouro")
+                .HasMaxLen(Logradouro, 50, "Logradouro", "Máximo de 50 caracteres para o Logradouro")
+                .IsNotNullOrEmpty(Bairro, "Bairro", "Preencha o Bairro")
+                .HasMaxLen(Bairro, 40, "Bairro", "Máximo de 40 caracteres para o Bairro")
+                .IsNotNullOrEmpty(Cidade, "Cidade", "Preencha o Cidade")
+                .HasMaxLen(Cidade, 40, "Cidade", "Máximo de 40 caracteres para o Cidade")
+                .IsNotNullOrEmpty(Estado, "Estado", "Preencha o Estado")
+                .HasMaxLen(Estado, 40, "Estado", "Máximo de 40 caracteres para o Estado")
+            );
         }
     }
 }

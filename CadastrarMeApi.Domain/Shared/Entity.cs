@@ -1,8 +1,10 @@
 using System;
+using Flunt.Notifications;
+using Flunt.Validations;
 
 namespace CadastrarMeApi.Domain.Shared
 {
-    public abstract class Entity
+    public abstract class Entity : Notifiable, IValidatable
     {
         public Guid Id { get; }
 
@@ -10,5 +12,7 @@ namespace CadastrarMeApi.Domain.Shared
         {
             Id = Guid.NewGuid();
         }
+
+        public abstract void Validate();
     }
 }

@@ -2,7 +2,7 @@ using CadastrarMeApi.Domain.ApplicationServices;
 
 namespace CadastrarMeApi.Web.Controllers
 {
-    public class EnderecoController : ControladorBase
+    public class EnderecoController
     {
         private readonly IEnderecoApplicationService _service;
 

@@ -1,6 +1,6 @@
 namespace CadastrarMeApi.Domain.ViewModels
 {
-    public class ResultViewModel
+    public class ResultViewModel : IResultViewModel
     {
         public bool Success { get; set; }
         public string Message { get; set; }

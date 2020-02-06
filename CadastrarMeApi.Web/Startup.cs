@@ -34,8 +34,6 @@ namespace CadastrarMeApi.Web
             services.AddDbContext<CadastrarMeDataContext>();
             services.AddScoped<CadastrarMeDataContext, CadastrarMeDataContext>();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IClienteApplicationService, ClienteApplicationService>();
 

@@ -5,14 +5,15 @@ using CadastrarMeApi.Domain.Repositories;
 using CadastrarMeApi.Domain.ApplicationServices;
 using CadastrarMeApi.Infra;
 using CadastrarMeApi.Domain.ViewModels.ClienteViewModels;
+using Flunt.Notifications;
+using CadastrarMeApi.Domain.ViewModels;
 
 namespace CadastrarMeApi.ApplicationService.Services
 {
-    public class ClienteApplicationService : ApplicationServiceBase, IClienteApplicationService
+    public class ClienteApplicationService : Notifiable, IClienteApplicationService
     {
         private readonly IClienteRepository _repository;
-        public ClienteApplicationService(IClienteRepository repository, IUnitOfWork uow)
-            : base(uow)
+        public ClienteApplicationService(IClienteRepository repository)
         {
             _repository = repository;
         }
@@ -21,17 +22,18 @@ namespace CadastrarMeApi.ApplicationService.Services
         {
             return _repository.Listar();
         }
-        public Cliente InserirCliente(CriarClienteViewModel model)
+        public ResultViewModel InserirCliente(CriarClienteViewModel model)
         {
+            // fail fast validation
             var cliente = new Cliente(model.Nome, model.CPF, model.DtNascimento);
+            cliente.Validate();
+
+            if (cliente.Invalid)
+                return new ResultViewModel { Success = false, Message = "Ocorreu um problema ao cadastrar o cliente.", Data = cliente.Notifications };
+
             _repository.Inserir(cliente);
 
-            if (Commit())
-            {
-                return cliente;
-            }
-
-            return null;
+            return new ResultViewModel { Success = true, Message = "Cliente cadastrado.", Data = cliente };
         }
         public Cliente AtualizarCliente(Guid id)
         {

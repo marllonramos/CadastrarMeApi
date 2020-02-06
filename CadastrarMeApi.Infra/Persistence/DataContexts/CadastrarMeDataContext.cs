@@ -11,7 +11,8 @@ namespace CadastrarMeApi.Infra.Persistence.DataContexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=dbCadMe;User ID=SA;Password=MNRMNR87@");
+            // optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=dbCadMe;User ID=SA;Password=MNRMNR87@");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=master;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -2,7 +2,7 @@ using System;
 
 namespace CadastrarMeApi.Domain.ViewModels.ClienteViewModels
 {
-    public class AtualizarClienteViewModel
+    public class AtualizarClienteViewModel : IViewModel
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }

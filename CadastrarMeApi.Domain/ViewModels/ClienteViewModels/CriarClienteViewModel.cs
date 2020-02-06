@@ -2,7 +2,7 @@ using System;
 
 namespace CadastrarMeApi.Domain.ViewModels.ClienteViewModels
 {
-    public class CriarClienteViewModel
+    public class CriarClienteViewModel : IViewModel
     {
         public string Nome { get; set; }
         public string CPF { get; set; }

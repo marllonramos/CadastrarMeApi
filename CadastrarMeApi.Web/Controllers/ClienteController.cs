@@ -6,7 +6,7 @@ using CadastrarMeApi.Domain.ViewModels.ClienteViewModels;
 
 namespace CadastrarMeApi.Web.Controllers
 {
-    public class ClienteController : ControladorBase
+    public class ClienteController
     {
         private readonly IClienteApplicationService _service;
 
@@ -20,8 +20,7 @@ namespace CadastrarMeApi.Web.Controllers
         public ResultViewModel Post([FromBody]CriarClienteViewModel model)
         {
             var resultado = _service.InserirCliente(model);
-
-            return CreateResponse(resultado);
+            return null;
         }
     }
 }

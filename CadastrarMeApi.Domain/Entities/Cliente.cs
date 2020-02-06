@@ -1,6 +1,6 @@
 using System;
 using CadastrarMeApi.Domain.Shared;
-using CadastrarMeApi.Domain.Validations;
+using Flunt.Validations;
 
 namespace CadastrarMeApi.Domain.Entities
 {
@@ -19,14 +19,25 @@ namespace CadastrarMeApi.Domain.Entities
             CPF = cpf;
             DtNascimento = dt;
 
-            this.ValidNome();
-            this.ValidCPF();
-            this.ValidDataNascimento();
+            Validate();
         }
 
         public void UpdateNome(string nome)
         {
             Nome = nome;
+        }
+
+        public override void Validate()
+        {
+            AddNotifications(
+                new Contract()
+                .Requires()
+                .IsNotNullOrEmpty(Nome, "Nome", "Preencha o Nome")
+                .HasMaxLen(Nome, 30, "Nome", "Máximo de 30 caracteres para o Nome")
+                .IsNotNullOrEmpty(CPF, "CPF", "Preencha o CPF")
+                .IsTrue(new Contract().ValidationIsCpf(CPF), "CPF", "CPF inválido")
+                .IsNotNull(DtNascimento, "DtNascimento", "Preencha a Data de Nascimento")
+            );
         }
     }
 }
