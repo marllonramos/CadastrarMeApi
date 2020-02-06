@@ -1,5 +1,4 @@
 using System;
-using CadastrarMeApi.SharedKernel.Events;
 
 namespace CadastrarMeApi.SharedKernel.Events
 {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using CadastrarMeApi.SharedKernel.Events;
 
-namespace CadastrarMeApi.SharedKernel
+namespace CadastrarMeApi.SharedKernel.Events
 {
     public class DomainNotificationHandler : IHandler<DomainNotification>
     {

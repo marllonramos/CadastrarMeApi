@@ -9,6 +9,9 @@ namespace CadastrarMeApi.Domain.Entities
         public string Nome { get; private set; }
         public string CPF { get; private set; }
         public DateTime DtNascimento { get; private set; }
+        public Endereco Endereco { get; private set; }
+
+        public Cliente() { }
 
         public Cliente(string nome, string cpf, DateTime dt)
         {
@@ -19,6 +22,11 @@ namespace CadastrarMeApi.Domain.Entities
             this.ValidNome();
             this.ValidCPF();
             this.ValidDataNascimento();
+        }
+
+        public void UpdateNome(string nome)
+        {
+            Nome = nome;
         }
     }
 }

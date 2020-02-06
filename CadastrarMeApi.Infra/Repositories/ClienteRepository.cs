@@ -30,8 +30,7 @@ namespace CadastrarMeApi.Infra.Repositories
         }
         public void Inserir(Cliente cliente)
         {
-            _context.Add(cliente);
-            _context.SaveChanges();
+            _context.Clientes.Add(cliente);
         }
         public void Atualizar(Cliente cliente)
         {

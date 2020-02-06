@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using CadastrarMeApi.Domain.Entities;
+using CadastrarMeApi.Infra.Persistence.Maps;
 
 namespace CadastrarMeApi.Infra.Persistence.DataContexts
 {
@@ -10,12 +11,13 @@ namespace CadastrarMeApi.Infra.Persistence.DataContexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=master;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=dbCadMe;User ID=SA;Password=MNRMNR87@");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfiguration(new ClienteMapping());
+            modelBuilder.ApplyConfiguration(new EnderecoMapping());
         }
     }
 }

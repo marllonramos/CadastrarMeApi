@@ -20,7 +20,7 @@ namespace CadastrarMeApi.ApplicationService.Services
         }
         public Endereco InserirEndereco(Endereco model)
         {
-            var endereco = new Endereco(model.Logradouro, model.Bairro, model.Cidade, model.Estado);
+            var endereco = new Endereco(model.Logradouro, model.Bairro, model.Cidade, model.Estado, model.ClienteId);
             _repository.Inserir(endereco);
 
             return endereco;
@@ -28,7 +28,7 @@ namespace CadastrarMeApi.ApplicationService.Services
         public Endereco AtualizarEndereco(Guid id)
         {
             var resultado = _repository.ListarPorId(id);
-            var endereco = new Endereco(resultado.Logradouro, resultado.Bairro, resultado.Cidade, resultado.Estado);
+            var endereco = new Endereco(resultado.Logradouro, resultado.Bairro, resultado.Cidade, resultado.Estado, resultado.ClienteId);
             _repository.Atualizar(endereco);
 
             return endereco;

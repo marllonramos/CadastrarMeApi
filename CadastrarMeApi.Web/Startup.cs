@@ -10,6 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using CadastrarMeApi.Domain.Repositories;
+using CadastrarMeApi.Domain.ApplicationServices;
+using CadastrarMeApi.Infra;
+using CadastrarMeApi.Infra.Repositories;
+using CadastrarMeApi.Infra.Persistence.DataContexts;
+using CadastrarMeApi.ApplicationService.Services;
 
 namespace CadastrarMeApi.Web
 {
@@ -25,6 +31,17 @@ namespace CadastrarMeApi.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CadastrarMeDataContext>();
+            services.AddScoped<CadastrarMeDataContext, CadastrarMeDataContext>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IClienteApplicationService, ClienteApplicationService>();
+
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<IEnderecoApplicationService, EnderecoApplicationService>();
+
             services.AddControllers();
         }
 
