@@ -18,14 +18,14 @@ namespace CadastrarMeApi.ApplicationService.Services
             _repository = repository;
         }
 
-        public IEnumerable<Cliente> ListarCliente()
+        public IEnumerable<Cliente> ListarClientes()
         {
             return _repository.Listar();
         }
         public ResultViewModel InserirCliente(CriarClienteViewModel model)
         {
             // fail fast validation
-            var cliente = new Cliente(model.Nome, model.CPF, model.DtNascimento);
+            var cliente = new Cliente(model.Nome, model.Cpf, model.DataNascimento);
             cliente.Validate();
 
             if (cliente.Invalid)
@@ -35,20 +35,30 @@ namespace CadastrarMeApi.ApplicationService.Services
 
             return new ResultViewModel { Success = true, Message = "Cliente cadastrado.", Data = cliente };
         }
-        public Cliente AtualizarCliente(Guid id)
+        public ResultViewModel AtualizarCliente(AtualizarClienteViewModel model)
         {
-            var resultado = _repository.ListarPorId(id);
-            var cliente = new Cliente(resultado.Nome, resultado.CPF, resultado.DtNascimento);
+            var clienteModel = new Cliente(model.Nome, model.Cpf, model.DataNascimento);
+            clienteModel.Validate();
+
+            if (clienteModel.Invalid)
+                return new ResultViewModel { Success = false, Message = "Ocorreu um problema ao atualizar o cliente.", Data = clienteModel.Notifications };
+
+            var cliente = _repository.ListarPorId(model.Id);
+
+            cliente.UpdateNome(clienteModel.Nome);
+            cliente.UpdateCPF(clienteModel.Cpf);
+            cliente.UpdateDataNascimento(clienteModel.DataNascimento);
+
             _repository.Atualizar(cliente);
 
-            return cliente;
+            return new ResultViewModel { Success = true, Message = "Cliente atualizado.", Data = cliente };
         }
-        public Cliente ExcluirCliente(Guid id)
+        public ResultViewModel ExcluirCliente(Guid id)
         {
             var cliente = _repository.ListarPorId(id);
             _repository.Excluir(cliente);
 
-            return cliente;
+            return new ResultViewModel { Success = true, Message = "Cliente excluído.", Data = cliente };
         }
     }
 }

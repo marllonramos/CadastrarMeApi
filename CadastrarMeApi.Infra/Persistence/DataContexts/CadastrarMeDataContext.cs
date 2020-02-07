@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using CadastrarMeApi.Domain.Entities;
 using CadastrarMeApi.Infra.Persistence.Maps;
+using Flunt.Notifications;
 
 namespace CadastrarMeApi.Infra.Persistence.DataContexts
 {
@@ -11,14 +12,17 @@ namespace CadastrarMeApi.Infra.Persistence.DataContexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=dbCadMe;User ID=SA;Password=MNRMNR87@");
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=master;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=dbCadMe;User ID=SA;Password=MNRMNR87@");
+            // optionsBuilder.UseSqlServer(@"Server=localhost;Database=master;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ClienteMapping());
             modelBuilder.ApplyConfiguration(new EnderecoMapping());
+
+            // modelBuilder.Entity<Notification>().HasNoKey();
+            modelBuilder.Ignore<Notification>();
         }
     }
 }

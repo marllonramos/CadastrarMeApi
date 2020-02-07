@@ -21,13 +21,13 @@ namespace CadastrarMeApi.Infra.Persistence.Maps
                 .IsRequired();
 
             builder
-                .Property(x => x.CPF)
+                .Property(x => x.Cpf)
                 .HasColumnName("Cpf")
                 .HasColumnType("varchar(11)")
                 .IsRequired();
 
             builder
-                .Property(x => x.DtNascimento)
+                .Property(x => x.DataNascimento)
                 .HasColumnName("DataNascimento")
                 .HasColumnType("datetime")
                 .IsRequired();

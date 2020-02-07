@@ -26,6 +26,26 @@ namespace CadastrarMeApi.Domain.Entities
             Validate();
         }
 
+        public void UpdateLogradouro(string logradouro)
+        {
+            Logradouro = logradouro;
+        }
+
+        public void UpdateBairro(string bairro)
+        {
+            Bairro = bairro;
+        }
+
+        public void UpdateCidade(string cidade)
+        {
+            Cidade = cidade;
+        }
+
+        public void UpdateEstado(string estado)
+        {
+            Estado = estado;
+        }
+
         public override void Validate()
         {
             AddNotifications(

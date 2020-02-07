@@ -19,7 +19,7 @@ namespace CadastrarMeApi.Infra.Repositories
 
         public IEnumerable<Cliente> Listar()
         {
-            return _context.Clientes.ToList();
+            return _context.Clientes.AsNoTracking().ToList();
         }
         public Cliente ListarPorId(Guid id)
         {
@@ -40,7 +40,7 @@ namespace CadastrarMeApi.Infra.Repositories
         }
         public void Excluir(Cliente cliente)
         {
-            _context.Remove(cliente);
+            _context.Clientes.Remove(cliente);
             _context.SaveChanges();
         }
     }

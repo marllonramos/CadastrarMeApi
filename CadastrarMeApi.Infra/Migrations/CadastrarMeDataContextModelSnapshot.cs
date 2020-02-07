@@ -25,12 +25,12 @@ namespace CadastrarMeApi.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CPF")
+                    b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnName("Cpf")
                         .HasColumnType("varchar(11)");
 
-                    b.Property<DateTime>("DtNascimento")
+                    b.Property<DateTime>("DataNascimento")
                         .HasColumnName("DataNascimento")
                         .HasColumnType("datetime");
 

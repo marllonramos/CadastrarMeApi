@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using CadastrarMeApi.Domain.Entities;
 using CadastrarMeApi.Domain.ApplicationServices;
@@ -6,7 +7,8 @@ using CadastrarMeApi.Domain.ViewModels.ClienteViewModels;
 
 namespace CadastrarMeApi.Web.Controllers
 {
-    public class ClienteController
+    [Route("api/cliente")]
+    public class ClienteController : ControllerBase
     {
         private readonly IClienteApplicationService _service;
 
@@ -15,12 +17,25 @@ namespace CadastrarMeApi.Web.Controllers
             _service = service;
         }
 
+        [HttpGet]
+        [Route("")]
+        public IEnumerable<Cliente> Get()
+        {
+            return _service.ListarClientes();
+        }
+
         [HttpPost]
-        [Route("api/cliente")]
+        [Route("")]
         public ResultViewModel Post([FromBody]CriarClienteViewModel model)
         {
-            var resultado = _service.InserirCliente(model);
-            return null;
+            return _service.InserirCliente(model);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public ResultViewModel Put([FromBody]AtualizarClienteViewModel model)
+        {
+            return _service.AtualizarCliente(model);
         }
     }
 }

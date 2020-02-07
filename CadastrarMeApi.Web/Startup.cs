@@ -28,22 +28,20 @@ namespace CadastrarMeApi.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<CadastrarMeDataContext>();
-            services.AddScoped<CadastrarMeDataContext, CadastrarMeDataContext>();
+            // services.AddScoped<CadastrarMeDataContext, CadastrarMeDataContext>();
 
-            services.AddScoped<IClienteRepository, ClienteRepository>();
-            services.AddScoped<IClienteApplicationService, ClienteApplicationService>();
+            services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<IClienteApplicationService, ClienteApplicationService>();
 
-            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
-            services.AddScoped<IEnderecoApplicationService, EnderecoApplicationService>();
+            services.AddTransient<IEnderecoRepository, EnderecoRepository>();
+            services.AddTransient<IEnderecoApplicationService, EnderecoApplicationService>();
 
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,6 +52,11 @@ namespace CadastrarMeApi.Web
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseAuthorization();
 

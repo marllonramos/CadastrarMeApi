@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CadastrarMeApi.Infra.Migrations
 {
     [DbContext(typeof(CadastrarMeDataContext))]
-    [Migration("20200206030950_initial")]
+    [Migration("20200207044630_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,12 +27,12 @@ namespace CadastrarMeApi.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CPF")
+                    b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnName("Cpf")
                         .HasColumnType("varchar(11)");
 
-                    b.Property<DateTime>("DtNascimento")
+                    b.Property<DateTime>("DataNascimento")
                         .HasColumnName("DataNascimento")
                         .HasColumnType("datetime");
 
