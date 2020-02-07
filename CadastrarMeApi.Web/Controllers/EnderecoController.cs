@@ -27,28 +27,28 @@ namespace CadastrarMeApi.Web.Controllers
 
         [HttpGet]
         [Route("cliente/{id}")]
-        public ResultViewModel GetByClientId(Guid id)
+        public IResultViewModel GetByClientId(Guid id)
         {
             return _service.ListarEnderecoPorCliente(id);
         }
 
         [HttpPost]
         [Route("")]
-        public ResultViewModel Post([FromBody]CriarEnderecoViewModel model)
+        public IResultViewModel Post([FromBody]CriarEnderecoViewModel model)
         {
             return _service.InserirEndereco(model);
         }
 
         [HttpPut]
         [Route("")]
-        public ResultViewModel Put([FromBody]AtualizarEnderecoViewModel model)
+        public IResultViewModel Put([FromBody]AtualizarEnderecoViewModel model)
         {
             return _service.AtualizarEndereco(model);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public ResultViewModel Delete(Guid id)
+        public IResultViewModel Delete(Guid id)
         {
             return _service.ExcluirEndereco(id);
         }

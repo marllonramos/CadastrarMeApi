@@ -27,21 +27,21 @@ namespace CadastrarMeApi.Web.Controllers
 
         [HttpPost]
         [Route("")]
-        public ResultViewModel Post([FromBody]CriarClienteViewModel model)
+        public IResultViewModel Post([FromBody]CriarClienteViewModel model)
         {
             return _service.InserirCliente(model);
         }
 
         [HttpPut]
         [Route("")]
-        public ResultViewModel Put([FromBody]AtualizarClienteViewModel model)
+        public IResultViewModel Put([FromBody]AtualizarClienteViewModel model)
         {
             return _service.AtualizarCliente(model);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public ResultViewModel Delete(Guid id)
+        public IResultViewModel Delete(Guid id)
         {
             return _service.ExcluirCliente(id);
         }

@@ -9,9 +9,9 @@ namespace CadastrarMeApi.Domain.ApplicationServices
     public interface IEnderecoApplicationService
     {
         IEnumerable<Endereco> ListarEnderecos();
-        ResultViewModel ListarEnderecoPorCliente(Guid id);
-        ResultViewModel InserirEndereco(CriarEnderecoViewModel model);
-        ResultViewModel AtualizarEndereco(AtualizarEnderecoViewModel model);
-        ResultViewModel ExcluirEndereco(Guid id);
+        IResultViewModel ListarEnderecoPorCliente(Guid id);
+        IResultViewModel InserirEndereco(CriarEnderecoViewModel model);
+        IResultViewModel AtualizarEndereco(AtualizarEnderecoViewModel model);
+        IResultViewModel ExcluirEndereco(Guid id);
     }
 }

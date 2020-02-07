@@ -9,8 +9,8 @@ namespace CadastrarMeApi.Domain.ApplicationServices
     public interface IClienteApplicationService
     {
         IEnumerable<Cliente> ListarClientes();
-        ResultViewModel InserirCliente(CriarClienteViewModel model);
-        ResultViewModel AtualizarCliente(AtualizarClienteViewModel model);
-        ResultViewModel ExcluirCliente(Guid id);
+        IResultViewModel InserirCliente(CriarClienteViewModel model);
+        IResultViewModel AtualizarCliente(AtualizarClienteViewModel model);
+        IResultViewModel ExcluirCliente(Guid id);
     }
 }

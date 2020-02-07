@@ -23,7 +23,7 @@ namespace CadastrarMeApi.ApplicationService.Services
             return _repository.Listar();
         }
 
-        public ResultViewModel ListarEnderecoPorCliente(Guid id)
+        public IResultViewModel ListarEnderecoPorCliente(Guid id)
         {
             var endereco = _repository.ListarPorCliente(id);
             endereco.Validate();
@@ -34,7 +34,7 @@ namespace CadastrarMeApi.ApplicationService.Services
             return new ResultViewModel { Success = true, Message = "Sucesso", Data = endereco };
         }
 
-        public ResultViewModel InserirEndereco(CriarEnderecoViewModel model)
+        public IResultViewModel InserirEndereco(CriarEnderecoViewModel model)
         {
             var endereco = new Endereco(model.Logradouro, model.Bairro, model.Cidade, model.Estado, model.ClienteId);
             endereco.Validate();
@@ -46,7 +46,7 @@ namespace CadastrarMeApi.ApplicationService.Services
 
             return new ResultViewModel { Success = true, Message = "Endereço cadastrado.", Data = endereco };
         }
-        public ResultViewModel AtualizarEndereco(AtualizarEnderecoViewModel model)
+        public IResultViewModel AtualizarEndereco(AtualizarEnderecoViewModel model)
         {
             var enderecoModel = new Endereco(model.Logradouro, model.Bairro, model.Cidade, model.Estado, model.ClienteId);
             enderecoModel.Validate();
@@ -66,7 +66,7 @@ namespace CadastrarMeApi.ApplicationService.Services
 
             return new ResultViewModel { Success = true, Message = "Endereço atualizado.", Data = endereco };
         }
-        public ResultViewModel ExcluirEndereco(Guid id)
+        public IResultViewModel ExcluirEndereco(Guid id)
         {
             var endereco = _repository.ListarPorId(id);
             _repository.Excluir(endereco);

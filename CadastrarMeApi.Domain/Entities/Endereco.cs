@@ -58,8 +58,8 @@ namespace CadastrarMeApi.Domain.Entities
                 .HasMaxLen(Logradouro, 50, "Logradouro", "Máximo de 50 caracteres para o Logradouro")
                 .IsNotNullOrEmpty(Bairro, "Bairro", "Preencha o Bairro")
                 .HasMaxLen(Bairro, 40, "Bairro", "Máximo de 40 caracteres para o Bairro")
-                .IsNotNullOrEmpty(Cidade, "Cidade", "Preencha o Cidade")
-                .HasMaxLen(Cidade, 40, "Cidade", "Máximo de 40 caracteres para o Cidade")
+                .IsNotNullOrEmpty(Cidade, "Cidade", "Preencha a Cidade")
+                .HasMaxLen(Cidade, 40, "Cidade", "Máximo de 40 caracteres para a Cidade")
                 .IsNotNullOrEmpty(Estado, "Estado", "Preencha o Estado")
                 .HasMaxLen(Estado, 40, "Estado", "Máximo de 40 caracteres para o Estado")
             );

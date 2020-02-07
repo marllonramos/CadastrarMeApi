@@ -22,7 +22,7 @@ namespace CadastrarMeApi.ApplicationService.Services
         {
             return _repository.Listar();
         }
-        public ResultViewModel InserirCliente(CriarClienteViewModel model)
+        public IResultViewModel InserirCliente(CriarClienteViewModel model)
         {
             // fail fast validation
             var cliente = new Cliente(model.Nome, model.Cpf, model.DataNascimento);
@@ -35,7 +35,7 @@ namespace CadastrarMeApi.ApplicationService.Services
 
             return new ResultViewModel { Success = true, Message = "Cliente cadastrado.", Data = cliente };
         }
-        public ResultViewModel AtualizarCliente(AtualizarClienteViewModel model)
+        public IResultViewModel AtualizarCliente(AtualizarClienteViewModel model)
         {
             var clienteModel = new Cliente(model.Nome, model.Cpf, model.DataNascimento);
             clienteModel.Validate();
@@ -53,7 +53,7 @@ namespace CadastrarMeApi.ApplicationService.Services
 
             return new ResultViewModel { Success = true, Message = "Cliente atualizado.", Data = cliente };
         }
-        public ResultViewModel ExcluirCliente(Guid id)
+        public IResultViewModel ExcluirCliente(Guid id)
         {
             var cliente = _repository.ListarPorId(id);
             _repository.Excluir(cliente);

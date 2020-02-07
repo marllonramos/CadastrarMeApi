@@ -9,7 +9,7 @@ namespace CadastrarMeApi.Domain.Entities
         public string Nome { get; private set; }
         public string Cpf { get; private set; }
         public DateTime DataNascimento { get; private set; }
-        public Endereco Endereco { get; private set; }
+        // public Endereco Endereco { get; private set; }
 
         public Cliente() { }
 

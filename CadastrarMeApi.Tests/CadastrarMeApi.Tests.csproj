@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CadastrarMeApi.Domain\CadastrarMeApi.Domain.csproj" />
+    <ProjectReference Include="..\CadastrarMeApi.ApplicationService\CadastrarMeApi.ApplicationService.csproj" />
   </ItemGroup>
 
 </Project>

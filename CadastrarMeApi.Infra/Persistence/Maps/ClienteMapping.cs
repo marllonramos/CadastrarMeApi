@@ -31,11 +31,6 @@ namespace CadastrarMeApi.Infra.Persistence.Maps
                 .HasColumnName("DataNascimento")
                 .HasColumnType("datetime")
                 .IsRequired();
-
-            builder
-                .HasOne(c => c.Endereco)
-                .WithOne(e => e.Cliente)
-                .HasForeignKey<Endereco>(e => e.ClienteId);
         }
     }
 }
