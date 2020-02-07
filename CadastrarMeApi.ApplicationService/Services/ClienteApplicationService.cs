@@ -5,8 +5,8 @@ using CadastrarMeApi.Domain.Repositories;
 using CadastrarMeApi.Domain.ApplicationServices;
 using CadastrarMeApi.Infra;
 using CadastrarMeApi.Domain.ViewModels.ClienteViewModels;
-using Flunt.Notifications;
 using CadastrarMeApi.Domain.ViewModels;
+using Flunt.Notifications;
 
 namespace CadastrarMeApi.ApplicationService.Services
 {

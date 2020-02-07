@@ -18,7 +18,7 @@ namespace CadastrarMeApi.Infra.Repositories
 
         public IEnumerable<Endereco> Listar()
         {
-            return _context.Enderecos.ToList();
+            return _context.Enderecos.AsNoTracking().ToList();
         }
         public Endereco ListarPorId(Guid id)
         {
@@ -27,9 +27,17 @@ namespace CadastrarMeApi.Infra.Repositories
                 .AsNoTracking()
                 .FirstOrDefault();
         }
+        public Endereco ListarPorCliente(Guid id)
+        {
+            return _context.Enderecos
+                .Include(e => e.Cliente)
+                .Where(e => e.ClienteId == id)
+                .AsNoTracking()
+                .FirstOrDefault();
+        }
         public void Inserir(Endereco endereco)
         {
-            _context.Add(endereco);
+            _context.Enderecos.Add(endereco);
             _context.SaveChanges();
         }
         public void Atualizar(Endereco endereco)
@@ -39,7 +47,7 @@ namespace CadastrarMeApi.Infra.Repositories
         }
         public void Excluir(Endereco endereco)
         {
-            _context.Remove(endereco);
+            _context.Enderecos.Remove(endereco);
             _context.SaveChanges();
         }
     }

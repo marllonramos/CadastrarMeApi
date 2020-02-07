@@ -8,6 +8,7 @@ namespace CadastrarMeApi.Domain.Repositories
     {
         IEnumerable<Endereco> Listar();
         Endereco ListarPorId(Guid id);
+        Endereco ListarPorCliente(Guid id);
         void Inserir(Endereco endereco);
         void Atualizar(Endereco endereco);
         void Excluir(Endereco endereco);

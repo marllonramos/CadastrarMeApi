@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using CadastrarMeApi.Domain.Entities;
@@ -36,6 +37,13 @@ namespace CadastrarMeApi.Web.Controllers
         public ResultViewModel Put([FromBody]AtualizarClienteViewModel model)
         {
             return _service.AtualizarCliente(model);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public ResultViewModel Delete(Guid id)
+        {
+            return _service.ExcluirCliente(id);
         }
     }
 }

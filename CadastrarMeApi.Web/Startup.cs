@@ -16,6 +16,7 @@ using CadastrarMeApi.Infra;
 using CadastrarMeApi.Infra.Repositories;
 using CadastrarMeApi.Infra.Persistence.DataContexts;
 using CadastrarMeApi.ApplicationService.Services;
+using Microsoft.OpenApi.Models;
 
 namespace CadastrarMeApi.Web
 {
@@ -40,6 +41,11 @@ namespace CadastrarMeApi.Web
             services.AddTransient<IEnderecoApplicationService, EnderecoApplicationService>();
 
             services.AddControllers();
+
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Cadastrar-me api", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,7 +57,14 @@ namespace CadastrarMeApi.Web
 
             app.UseHttpsRedirection();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cadastrar-me api - v1");
+            });
+
             app.UseRouting();
+
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()

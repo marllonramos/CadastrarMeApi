@@ -22,8 +22,6 @@ namespace CadastrarMeApi.Domain.Entities
             Cidade = cidade;
             Estado = estado;
             ClienteId = clienteId;
-
-            Validate();
         }
 
         public void UpdateLogradouro(string logradouro)
@@ -44,6 +42,11 @@ namespace CadastrarMeApi.Domain.Entities
         public void UpdateEstado(string estado)
         {
             Estado = estado;
+        }
+
+        public void UpdateEnderecoPorCliente(Guid id)
+        {
+            ClienteId = id;
         }
 
         public override void Validate()
